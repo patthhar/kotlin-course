@@ -39,3 +39,19 @@ fun main() {
   val kmmCourse = KmmCourse()
   println(kmmCourse.startingCourse())
 }
+
+abstract class BaseViewModel(
+  val userId: String
+) {
+  fun logUserState() {
+    print("User Id: $userId")
+  }
+
+  abstract fun getUserDetails(): String
+}
+
+class ScreenViewModel(userId: String, private val username: String) : BaseViewModel(userId) {
+  override fun getUserDetails(): String {
+    return "user Id: $userId and username: $username"
+  }
+}
