@@ -5,6 +5,7 @@ package week_3
 // Extension functions can only access the public methods or fields of the class
 // Private methods or fields are not accessible
 // Kotlin sugar easy to extend on third party classes - increases readability
+// Also as a safety feature to have you access private data in third-party library classes
 
 open class ComicCharacter(
   open val personalName: String,
