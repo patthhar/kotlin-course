@@ -8,7 +8,11 @@ data class Employee(
 
 sealed class Designation {
   object Manager : Designation()
-  data class NotManager(
+  data class Executive(
+    val reportee: List<Employee>
+  ) : Designation()
+
+  data class Junior(
     val id: String,
     val manager: Manager
   ) : Designation()

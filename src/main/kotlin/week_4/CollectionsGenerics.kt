@@ -1,5 +1,6 @@
 package week_4
 
+import java.util.Stack
 import java.util.stream.IntStream.IntMapMultiConsumer
 
 // Generics - T - not defining what the type of the class is. But can be general

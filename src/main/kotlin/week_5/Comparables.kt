@@ -1,7 +1,5 @@
 package week_5
 
-import kotlin.reflect.KClass
-
 class Comparable<in P : Person> {
   fun compare(p1: P, p2: P): Int {
     return p1.id.compareTo(p2.id)
@@ -9,7 +7,9 @@ class Comparable<in P : Person> {
 }
 
 class AnotherEdTech {
-  // for in, you can assign subclass type to superclass
+  // for in, you can assign superclass type to subclass
+  // for out, you can assign subclass type to superclass
+
   val comparable: Comparable<Teacher> = Comparable<Person>()
 
   // with out, can assign superclass type to subclass
