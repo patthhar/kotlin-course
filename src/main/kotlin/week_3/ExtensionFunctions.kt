@@ -7,6 +7,9 @@ package week_3
 // Kotlin sugar easy to extend on third party classes - increases readability
 // Also as a safety feature to have you access private data in third-party library classes
 
+// Extension function is decided at compile time which one to use if there are multiple of parent-child extensions
+// And extension function will be shadowed by the member functions
+
 open class ComicCharacter(
   open val personalName: String,
   open val mainPower: String = "shield"
