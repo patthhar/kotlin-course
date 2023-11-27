@@ -1,6 +1,10 @@
 package classes.class_6
 
+import arrow.core.None
+import arrow.core.Option
+import arrow.core.raise.Null
 import classes.week_5.Employee
+import java.util.Optional
 import kotlin.random.Random
 
 /*
@@ -126,3 +130,40 @@ fun getIdsOfEmployeesFlatMap(dataList: List<List<Employee>>): List<String> {
   }
 }
 
+// Monad - FP structure to handle with Error handling, side effects
+// Most common one is 'Option'
+// Optional null defines there may or may not be a null - Optional values
+data class OurEmployee(
+  val id: String,
+  val name: String,
+  val manager: OurEmployee? = null
+)
+
+data class OurEmployeeOptional(
+  val id: String,
+  val name: String,
+  val manager: Option<String>
+)
+
+// Part of typed functional programing language
+// Below is nullable operator
+fun getManagerName(employee: OurEmployee): String? {
+  return employee.manager?.name
+}
+
+fun getManagerNameOptional(employee: OurEmployee): Option<String> {
+  return if (employee.manager != null) Option(employee.manager.name) else None
+}
+
+fun getManagerNameOption(employee: OurEmployeeOptional): Option<String> {
+  return employee.manager.map { it }
+}
+
+class SomeEmployeeThing {
+  val ourOptionEmployee = OurEmployeeOptional("", "Employee Name", Option("Manager name"))
+  val managerOption = getManagerNameOption(ourOptionEmployee)
+
+  fun printManagerOption() {
+    managerOption.isSome()
+  }
+}

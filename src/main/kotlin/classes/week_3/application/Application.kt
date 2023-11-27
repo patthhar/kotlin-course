@@ -1,6 +1,6 @@
 package classes.week_3.application
 
-import week_3.library.DataSource
+import classes.week_3.library.DataSource
 
 class Application(
   private val library: DataSource
